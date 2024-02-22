@@ -1,28 +1,32 @@
 export interface CharactersData {
     allPeople: {
-        totalCount: number;
-        people: Character[];
+        pageInfo: {
+            hasNextPage: boolean;
+            endCursor: string | null;
+        };
+        people: CharacterListItem[];
     };
 }
 
-export interface Character {
+export interface CharacterListItem {
     id: string;
     name: string;
-    height: number;
-    mass: number;
-    birthYear: string;
-    hairColor: string;
-    eyeColor: string;
     homeworld: Homeworld;
-    filmConnection: {
-        films: Film[];
-    };
 }
 
 export interface Homeworld {
     id: string;
     name: string;
     orbitalPeriod: number;
+}
+
+export interface CharacterDetails extends CharacterListItem {
+    height: number;
+    mass: number;
+    birthYear: string;
+    hairColor: string;
+    eyeColor: string;
+    films: Film[];
 }
 
 export interface Film {
