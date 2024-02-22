@@ -1,8 +1,10 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { CHARACTER_LIST } from '../queries/characterList';
-import { CharactersData } from '../types';
-import usePagination from '../hooks/usePagination';
+import { CHARACTER_LIST } from '../../queries/characterList';
+import { CharactersData } from '../../types';
+import usePagination from '../../hooks/usePagination';
+import CharacterCard from '../CharacterCard/CharacterCard';
+import './index.css'
 
 const PAGE_SIZE = 10;
 
@@ -20,11 +22,11 @@ const CharacterList: React.FC = () => {
   return (
     <div>
       <h2>Characters</h2>
-      <ul>
+      <div className="character-list">
         {data.allPeople.people.map((character) => (
-          <li key={character.id}>{character.name} - Homeworld: {character.homeworld.name}</li>
+          <CharacterCard key={character.id} character={character} />
         ))}
-      </ul>
+      </div>
       <button onClick={() => prevPage()} disabled={page === 1}>Previous</button>
       <button onClick={() => nextPage(data.allPeople.pageInfo.hasNextPage, data.allPeople.pageInfo.endCursor)} disabled={!data.allPeople.pageInfo.hasNextPage}>Next</button>
     </div>

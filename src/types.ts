@@ -21,12 +21,19 @@ export interface Homeworld {
 }
 
 export interface CharacterDetails extends CharacterListItem {
-    height: number;
-    mass: number;
-    birthYear: string;
-    hairColor: string;
-    eyeColor: string;
-    films: Film[];
+    person: {
+        id: string;
+        name: string;
+        height: number;
+        mass: number;
+        birthYear: string;
+        hairColor: string;
+        eyeColor: string;
+        homeworld: Homeworld;
+        filmConnection: {
+            films: Film[];
+        }
+    };
 }
 
 export interface Film {

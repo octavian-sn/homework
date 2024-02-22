@@ -1,0 +1,5 @@
+.character-card{
+    background-color: rgb(237, 231, 209);
+    text-align: center;
+    flex-grow: 1;
+}

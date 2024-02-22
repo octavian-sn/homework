@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacterList from '../components/CharacterList';
+import CharacterList from '../components/CharacterList/CharacterList';
 
 const Home: React.FC = () => {
   return (
