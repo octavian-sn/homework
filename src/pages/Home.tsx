@@ -1,13 +1,18 @@
 import React from 'react';
-import CharacterList from '../components/CharacterList/CharacterList';
+import CharacterList from '../components/CharacterPage/CharacterPage';
+import CharacterSearch from '../components/CharacterSearch/CharacterSearch';
+import { AppDataContextProvider } from '../context/AppDataContext';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to Star Wars Characters App!</h1>
+    <AppDataContextProvider>
+      <div>
+        <h1>Welcome to Star Wars Characters App!</h1>
 
-      <CharacterList />
-    </div>
+        <CharacterSearch />
+        <CharacterList />
+      </div>
+    </AppDataContextProvider>
   );
 };
 

@@ -16,8 +16,6 @@ const CharacterDropdown: React.FC<Props> = ({ characterId }) => {
   if (error) return <p>Error: {error.message}</p>;
   if (!data || !data.person) return <p>Data not available.</p>;
 
-  console.log(data)
-
   const {
     height,
     mass,
