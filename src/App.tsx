@@ -1,8 +1,14 @@
 import './App.css'
+import React from 'react';
+import CharacterList from './Components/CharacterList';
 
-function App() {
+const App: React.FC = () => {
+  return (
+    <div>
+      <h1>Star Wars Characters</h1>
+      <CharacterList />
+    </div>
+  );
+};
 
-  return <p>Welcomen</p>
-}
-
-export default App
+export default App;
