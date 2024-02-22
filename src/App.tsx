@@ -1,14 +1,18 @@
 import './App.css'
 import React from 'react';
-import CharacterList from './Components/CharacterList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 
-const App: React.FC = () => {
-  return (
-    <div>
-      <h1>Star Wars Characters</h1>
-      <CharacterList />
+const App: React.FC = () => (
+  <BrowserRouter>
+    <div className='app'>
+      {/* Navbar */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      {/* Footer */}
     </div>
-  );
-};
+  </BrowserRouter>
+);
 
 export default App;
