@@ -1,0 +1,13 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15;
+    gap: 2vh;
+    text-align: center;
+}
+.banner {
+    max-width: 50%;
+    max-height: 230px;
+}

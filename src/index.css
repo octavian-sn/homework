@@ -1,3 +1,7 @@
 *{
     box-sizing: border-box;
 }
+body{
+    background-color: rgba(0, 0, 0, 0.051);
+    font-family: "Roboto", sans-serif;
+}

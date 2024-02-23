@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { CHARACTER_LIST } from '../../queries/characterList';
 import { CharactersData } from '../../types';
 import { useAppDataContext } from '../../context/AppDataContext';
+import './index.css'
 
 const CharacterSearch: React.FC = () => {
   const { setCharacters } = useAppDataContext();
@@ -26,18 +27,18 @@ const CharacterSearch: React.FC = () => {
 
     // Update characters in the context
     setCharacters(filteredCharacters);
-    console.log(filteredCharacters)
   };
 
   return (
-    <div>
+    <div className='search'>
       <input 
+        className='searchInput'
         type="text" 
         placeholder="Search by name or homeworld" 
         value={searchTerm} 
         onChange={handleSearchChange} 
       />
-      <button onClick={handleSearchClick}>Search</button>
+      <button className='searchButton' onClick={handleSearchClick}>Search</button>
     </div>
   );
 };

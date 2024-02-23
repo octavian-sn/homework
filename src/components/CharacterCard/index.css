@@ -1,5 +1,24 @@
 .character-card{
-    background-color: rgb(237, 231, 209);
+    background-color: rgb(255, 255, 255);
     text-align: center;
     flex-grow: 1;
+    border-radius: 3px;
+    box-shadow: 3px 5px 6px #00000054;
+    cursor: pointer;
+    padding: 25px 5px 15px 5px;
+    width: 230px;
+    height: fit-content;
+    transition: all .15s ease-in-out;
 }
+.character-card:hover{
+    box-shadow: 3px 12px 14px 0px rgba(99,89,99,1);
+}
+.image{
+    width: 150px;
+    opacity: 93%;
+}
+@media only screen and (min-width: 600px) {
+    .character-card{
+        max-width: 250px;
+    }
+  }

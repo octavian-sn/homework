@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { CHARACTER_DETAILS } from '../../queries/characterDetails';
 import { CharacterDetails } from '../../types';
+import './index.css'
 
 interface Props {
   characterId: string;
@@ -32,7 +33,7 @@ const CharacterDropdown: React.FC<Props> = ({ characterId }) => {
   });
 
   return (
-    <div>
+    <div className='dropdown'>
       <p>Height: {height}</p>
       <p>Mass: {mass}</p>
       <p>Birth Year: {birthYear}</p>
@@ -43,7 +44,7 @@ const CharacterDropdown: React.FC<Props> = ({ characterId }) => {
       <p>Films:</p>
       <ul>
         {sortedFilms.map((film) => (
-          <li key={film.id}>{film.title} - Release Date: {film.releaseDate}</li>
+          <li key={film.id}><em>{film.title}</em> - <br /> Release Date: {film.releaseDate}</li>
         ))}
       </ul>
     </div>

@@ -6,6 +6,8 @@ import { CharactersData, CharacterListItem } from '../types';
 interface AppDataContextType {
   characters: CharacterListItem[] | null;
   setCharacters: React.Dispatch<React.SetStateAction<CharacterListItem[] | null>>;
+  //Loading state
+  loading: boolean;
 }
 
 const AppDataContext = createContext<AppDataContextType | null>(null);
@@ -20,17 +22,21 @@ export const useAppDataContext = () => {
 
 export const AppDataContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const [characters, setCharacters] = useState<CharacterListItem[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false); // Initialize loading state
 
-  const { loading, error, data } = useQuery<CharactersData>(CHARACTER_LIST);
+  const { loading: queryLoading, error, data } = useQuery<CharactersData>(CHARACTER_LIST);
 
   useEffect(() => {
-    if (!loading && !error && data) {
+    if (queryLoading) {
+      setLoading(true); // Set loading to true when query is loading
+    } else if (!queryLoading && !error && data) {
       setCharacters(data.allPeople.people);
+      setLoading(false); // Set loading to false when query is completed
     }
-  }, [loading, error, data]);
+  }, [queryLoading, error, data]);
 
   return (
-    <AppDataContext.Provider value={{ characters, setCharacters }}>
+    <AppDataContext.Provider value={{ characters, setCharacters, loading }}>
       {children}
     </AppDataContext.Provider>
   );

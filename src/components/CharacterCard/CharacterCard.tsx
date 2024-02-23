@@ -12,6 +12,7 @@ const CharacterCard: React.FC<{ character: CharacterListItem }> = ({ character }
 
   return (
     <div className="character-card" onClick={toggleDropdown}>
+      <img className='image' src="./star-wars-silhouette-png-16.png" alt="Yoda's silhouette" />
       <h3>{character.name}</h3>
       <p>Homeworld: {character.homeworld.name}</p>
       {isDropdownOpen && <CharacterDropdown characterId={character.id} />}

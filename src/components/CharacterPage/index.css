@@ -1,5 +1,21 @@
 .character-list{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1400px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 12px;
+}
+.pagination button{
+    width: 80px;
+    height: 24px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
 }

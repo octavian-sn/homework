@@ -6,13 +6,17 @@ import './index.css';
 const PAGE_SIZE = 10;
 
 const CharacterPage: React.FC = () => {
-  const { characters } = useAppDataContext();
+  const { characters, loading } = useAppDataContext();
   const [currentPage, setCurrentPage] = useState(1);
 
   // Reset current page when characters change
   useEffect(() => {
     setCurrentPage(1); 
   }, [characters]);
+
+  if (loading) {
+    return <p>Loading...</p>; // Display a loading spinner while characters are being fetched
+  }
 
   if (!characters || characters.length === 0) {
     return <p>No characters available.</p>;
@@ -40,12 +44,6 @@ const CharacterPage: React.FC = () => {
 
   return (
     <div>
-      <h2>Characters</h2>
-      <div className="character-list">
-        {charactersOnPage.map((character) => (
-          <CharacterCard key={character.id} character={character} />
-        ))}
-      </div>
       <div className="pagination">
         <button onClick={prevPage} disabled={currentPage === 1}>
           Previous
@@ -54,6 +52,11 @@ const CharacterPage: React.FC = () => {
         <button onClick={nextPage} disabled={currentPage === totalPages}>
           Next
         </button>
+      </div>
+      <div className="character-list">
+        {charactersOnPage.map((character) => (
+          <CharacterCard key={character.id} character={character} />
+        ))}
       </div>
     </div>
   );
