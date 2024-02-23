@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAppDataContext } from '../../context/AppDataContext';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import './index.css';
+import { RevolvingDot } from 'react-loader-spinner';
 
 const PAGE_SIZE = 10;
 
@@ -15,7 +16,15 @@ const CharacterPage: React.FC = () => {
   }, [characters]);
 
   if (loading) {
-    return <p>Loading...</p>; // Display a loading spinner while characters are being fetched
+    return <RevolvingDot
+    visible={true}
+    height="80"
+    width="80"
+    color="#000000"
+    ariaLabel="revolving-dot-loading"
+    wrapperStyle={{}}
+    wrapperClass=""
+    />; // Display a loading spinner while characters are being fetched
   }
 
   if (!characters || characters.length === 0) {
