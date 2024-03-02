@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacterList from '../components/CharacterPage/CharacterPage';
+import CharacterList from '../components/CharacterList/CharacterList';
 import CharacterSearch from '../components/CharacterSearch/CharacterSearch';
 import { AppDataContextProvider } from '../context/AppDataContext';
 import './index.css'
